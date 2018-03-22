@@ -11,8 +11,8 @@ public class TestesPersistir {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("IFSULModelPU");
         EntityManager em = emf.createEntityManager();
         Pais p = new Pais();
-        p.setNome("França");
-        p.setIso("FRA");
+        p.setNome("Espanha");
+        p.setIso("ESP");
         em.getTransaction().begin();
         em.persist(p);
         em.getTransaction().commit();
