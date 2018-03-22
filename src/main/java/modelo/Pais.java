@@ -1,6 +1,10 @@
 package modelo;
 
+import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.NotBlank;
+
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
 @Entity
@@ -8,9 +12,15 @@ public class Pais implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @Column(name = "nome", nullable = false, length = 50)
+    @Column()
+    @Length(max = 50, message = "O nome pode ter mais de {max} caracteres")
+    @NotBlank(message = "O nome deve ser informado")
+    @NotNull(message = "O nome não pode ser nulo")
     private String nome;
-    @Column(name = "iso", nullable = false, length = 3)
+    @Length(max = 3, message = "O nome pode ter mais de {max} caracteres")
+    @NotBlank(message = "O ISO deve ser informado")
+    @NotNull(message = "O ISO não pode ser nulo")
+    @Column()
     private String iso;
 
 
